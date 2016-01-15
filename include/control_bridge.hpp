@@ -13,7 +13,7 @@
 /// same as the name of the topic.
 /// Name of the topic is chosen at object creation.
 /// 
-class control_bridge
+class ControlBridge
 {
 private:
   std::map<std::string,ros::Publisher> publishers;
@@ -22,9 +22,9 @@ public:
 
   /// Published topic for every name in names is:
   /// - prefix + name + suffix + "/command"
-  control_bridge(ros::NodeHandle &nh,
-                 const std::vector<std::string> &names,
-                 const std::string &prefix = "/",
-                 const std::string &suffix = "_controller");
+  ControlBridge(ros::NodeHandle &nh,
+                const std::vector<std::string> &names,
+                const std::string &prefix = "/",
+                const std::string &suffix = "_controller");
   void send(const std::map<std::string, double> &values);
 };

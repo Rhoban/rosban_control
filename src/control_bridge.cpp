@@ -2,7 +2,7 @@
 
 #include "std_msgs/Float64.h"
 
-control_bridge::control_bridge(ros::NodeHandle &nh,
+ControlBridge::ControlBridge(ros::NodeHandle &nh,
                                const std::vector<std::string>& names,
                                const std::string &prefix,
                                const std::string &suffix)
@@ -13,7 +13,7 @@ control_bridge::control_bridge(ros::NodeHandle &nh,
   }
 }
 
-void control_bridge::send(const std::map<std::string, double> &entries)
+void ControlBridge::send(const std::map<std::string, double> &entries)
 {
   for (const auto &e : entries) {
     std_msgs::Float64 msg;
