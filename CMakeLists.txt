@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   sensor_msgs
+  rosban_utils
 )
 
 ## System dependencies are found with CMake's conventions
@@ -123,25 +124,13 @@ include_directories(
 # Declare a C++ library
 add_library(rosban_control
   src/control_bridge.cpp
+  src/control_config.cpp
   src/joint_listener.cpp
   )
 
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-# add_dependencies(rosban_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Declare a C++ executable
-# add_executable(rosban_control_node src/rosban_control_node.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(rosban_control_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(rosban_control_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(rosban_control
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
