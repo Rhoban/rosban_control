@@ -8,8 +8,12 @@ namespace rosban_control
 class ControlConfig : public rosban_utils::Serializable
 {
 public:
+  ControlConfig();
+
+  std::string robot;
   double frequency;
-  std::vector<std::string> sensors;
+  std::vector<std::string> linear_sensors;
+  std::vector<std::string> angular_sensors;
   std::vector<std::string> effectors;
 
   virtual std::string class_name() const override;

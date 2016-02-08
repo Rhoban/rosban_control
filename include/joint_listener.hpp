@@ -1,5 +1,7 @@
 #pragma once
 
+#include "control_config.h"
+
 #include <ros/ros.h>
 
 #include <map>
@@ -24,11 +26,13 @@ public:
     double eff;// [N]   or [N m]
   };
 
+  typedef std::map<std::string, JointState> StateMap;
+
 private:
   ros::Subscriber subscriber;
 
   std::mutex statusLock;
-  std::map<std::string, JointState> status;
+  StateMap status;
 
   void receive(const sensor_msgs::JointState::ConstPtr &msg);
 
