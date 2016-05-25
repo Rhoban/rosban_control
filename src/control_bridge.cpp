@@ -9,6 +9,7 @@ ControlBridge::ControlBridge(ros::NodeHandle &nh,
 {
   for (const std::string &name : names) {
     std::string topicName = prefix + name + suffix + "/command";
+    std::cout << "publishing at " << topicName << std::endl;
     publishers[name] = nh.advertise<std_msgs::Float64>(topicName, 0);
   }
 }
